@@ -12,7 +12,7 @@ import axios from "axios";
 import { useAuth } from "../context/useAuth.jsx"; // 確保路徑正確
 import "./LoginPage.css"; // 我們稍後會創建這個 CSS 文件
 
-const API_BASE_URL = "https://ccbackend.onrender.com";
+const API_BASE_URL = "https://ccbackend-31e7.onrender.com";
 
 const LoginPage = () => {
     const [loading, setLoading] = useState(false);
