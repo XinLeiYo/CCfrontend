@@ -7,8 +7,8 @@ import moment from "moment"; // 確保導入 moment
 const { TextArea } = Input;
 const { Option } = Select;
 
-const API_BASE_URL = "http://192.168.2.65:5000/api"; // 確保這是你的後端地址
-const IMAGE_BASE_URL = "http://192.168.2.65:5000";
+const API_BASE_URL = "https://ccbackend.onrender.com/api"; // 確保這是你的後端地址
+const IMAGE_BASE_URL = "https://ccbackend.onrender.com";
 
 const ReportListPage = () => {
     const [reports, setReports] = useState([]);

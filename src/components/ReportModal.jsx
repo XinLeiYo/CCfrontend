@@ -11,7 +11,7 @@ const ReportModal = ({ open, onCancel, ccmId: initialCcmId = null }) => {
     const [fileList, setFileList] = useState([]);
     const [uploading, setUploading] = useState(false);
 
-    const API_BASE_URL = "http://192.168.2.65:5000/api"; // 確保這是你的後端地址
+    const API_BASE_URL = "https://ccbackend.onrender.com/api"; // 確保這是你的後端地址
 
     useEffect(() => {
         if (open) {

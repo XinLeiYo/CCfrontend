@@ -5,7 +5,7 @@ import axios from 'axios';
 import moment from 'moment'; // 導入 moment 庫
 
 // 確保 API_BASE_URL 與 EquipmentPage.jsx 中的一致
-const API_BASE_URL = "http://192.168.2.65:5000/api";
+const API_BASE_URL = "https://ccbackend.onrender.com/api";
 
 const getStatusTagColor = (status) => {
         switch (status) {
