@@ -67,7 +67,7 @@ const EquipmentPage = () => {
 
     const { token, logout } = useAuth();
 
-    const API_BASE_URL = "https://ccbackend-31e7.onrender.com/api";
+    const API_BASE_URL = "http://192.168.2.65:5000/api";
 
     const fetchEquipmentData = useCallback(
         async (status = null) => {
