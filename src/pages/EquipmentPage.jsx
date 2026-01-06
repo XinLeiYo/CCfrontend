@@ -67,7 +67,7 @@ const EquipmentPage = () => {
 
     const { token, logout } = useAuth();
 
-    const API_BASE_URL = "http://192.168.2.65:5000/api";
+    const API_BASE_URL = "http://192.168.2.65:5000";
 
     const fetchEquipmentData = useCallback(
         async (status = null) => {
@@ -82,8 +82,8 @@ const EquipmentPage = () => {
             setLoading(true);
             try {
                 const url = status
-                    ? `${API_BASE_URL}/equipment?status=${status}`
-                    : `${API_BASE_URL}/equipment`;
+                    ? `${API_BASE_URL}/api/equipment?status=${status}`
+                    : `${API_BASE_URL}/api/equipment`;
 
                 const response = await axios.get(url, {
                     headers: {
@@ -128,7 +128,7 @@ const EquipmentPage = () => {
 
         try {
             const response = await axios.get(
-                `${API_BASE_URL}/equipment/status_counts`,
+                `${API_BASE_URL}/api/equipment/status_counts`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -181,7 +181,7 @@ const EquipmentPage = () => {
 
             if (currentEquipment) {
                 await axios.put(
-                    `${API_BASE_URL}/equipment/${currentEquipment.CCM_ID}`,
+                    `${API_BASE_URL}/api/equipment/${currentEquipment.CCM_ID}`,
                     payload
                 );
                 message.success("器材更新成功！");
@@ -223,7 +223,7 @@ const EquipmentPage = () => {
                 try {
                     setLoading(true);
                     await axios.delete(
-                        `${API_BASE_URL}/equipment/${equipment.ID}`,
+                        `${API_BASE_URL}/api/equipment/${equipment.ID}`,
                         {
                             data: { updateBy: "Admin" }, // 或從用戶會話中獲取
                         }
@@ -312,7 +312,7 @@ const EquipmentPage = () => {
             }
 
             // 只發送一個 PUT 請求到新的批次更新路由
-            await axios.put(`${API_BASE_URL}/equipment/batch`, batchPayload);
+            await axios.put(`${API_BASE_URL}/api/equipment/batch`, batchPayload);
 
             message.success(`成功更新 ${batchPayload.length} 項器材！`);
             setIsBatchEditModalVisible(false);

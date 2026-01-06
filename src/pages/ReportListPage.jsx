@@ -7,9 +7,7 @@ import moment from "moment"; // 確保導入 moment
 const { TextArea } = Input;
 const { Option } = Select;
 
-const API_BASE_URL = "http://192.168.2.65:5000/api"; // 確保這是你的後端地址
-const IMAGE_BASE_URL = "hhttp://192.168.2.65:5000";
-
+const API_BASE_URL = "http://192.168.2.65:5000"; // 確保這是你的後端地址
 const ReportListPage = () => {
     const [reports, setReports] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -22,7 +20,7 @@ const ReportListPage = () => {
     const fetchReports = async () => {
         setLoading(true);
         try {
-            const response = await axios.get(`${API_BASE_URL}/reports`);
+            const response = await axios.get(`${API_BASE_URL}/api/reports`);
             if (response.data.success) {
                 const formattedReports = response.data.reports.map(report => {
                     let imagePaths = [];
@@ -71,7 +69,7 @@ const ReportListPage = () => {
             if (!normalizedPath.startsWith('/')) {
                 normalizedPath = '/' + normalizedPath;
             }
-            return `${IMAGE_BASE_URL}${normalizedPath}`;
+            return `${API_BASE_URL}${normalizedPath}`;
         });
         setCurrentImageUrls(urls);
         setIsImageModalVisible(true);
@@ -105,7 +103,7 @@ const ReportListPage = () => {
             };
 
             // 這裡需要一個新的後端接口來更新單一回報
-            const response = await axios.put(`${API_BASE_URL}/report/${editingReport.ID}`, updates);
+            const response = await axios.put(`${API_BASE_URL}/api/report/${editingReport.ID}`, updates);
 
             if (response.data.success) {
                 message.success("回報資料更新成功！");
@@ -123,7 +121,7 @@ const ReportListPage = () => {
 
     const handleDeleteReport = async (reportId) => {
         try {
-            const response = await axios.delete(`${API_BASE_URL}/report/${reportId}`);
+            const response = await axios.delete(`${API_BASE_URL}/api/report/${reportId}`);
             if (response.data.success) {
                 message.success("回報已刪除！");
                 fetchReports(); // 重新載入數據

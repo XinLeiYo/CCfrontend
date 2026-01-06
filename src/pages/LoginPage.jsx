@@ -34,7 +34,7 @@ const LoginPage = () => {
         setLoading(true);
         try {
             const response = await axios.post(
-                `${API_BASE_URL}/auth/login`,
+                `${API_BASE_URL}/api/auth/login`,
                 values
             );
             if (response.data.success) {
@@ -54,7 +54,7 @@ const LoginPage = () => {
     const handleRegister = async (values) => {
         try {
             const response = await axios.post(
-                `${API_BASE_URL}/register`,
+                `${API_BASE_URL}/api/register`,
                 values
             );
             if (response.data.success) {
@@ -75,7 +75,7 @@ const LoginPage = () => {
         setForgetPasswordError(null);
         try {
             const response = await axios.post(
-                `${API_BASE_URL}/auth/verify_username`,
+                `${API_BASE_URL}/api/auth/verify_username`,
                 {
                     username: values.username,
                 }
@@ -112,7 +112,7 @@ const LoginPage = () => {
         setForgetPasswordError(null);
         try {
             const response = await axios.post(
-                `${API_BASE_URL}/auth/reset_password_no_auth`,
+                `${API_BASE_URL}/api/auth/reset_password_no_auth`,
                 {
                     username: usernameToReset, // 使用第一步驗證的使用者名稱
                     new_password: values.newPassword,
