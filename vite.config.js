@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://192.168.2.65:5000', // Flask 後端 port
+        target: 'http://192.168.2.65:5172', // Flask 後端 port
         changeOrigin: true,
       },
     },

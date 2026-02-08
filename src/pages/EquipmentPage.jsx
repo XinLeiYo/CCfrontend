@@ -67,7 +67,7 @@ const EquipmentPage = () => {
 
     const { token, logout } = useAuth();
 
-    const API_BASE_URL = "http://192.168.2.65:5000";
+    const API_BASE_URL = "http://192.168.2.65:5172";
 
     const fetchEquipmentData = useCallback(
         async (status = null) => {
